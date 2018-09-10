@@ -1,0 +1,12 @@
+build/
+ANO_Pioneer.*
+ANO_Pioneer_Ano_Pioneer.dep
+ANO_Pioneer_uvopt.bak
+ANO_Pioneer_uvproj.bak
+JLinkLog.txt
+JLinkSettings.ini
+TEST.ANO
+clear_all.bat
+init_update_records.txt
+
+

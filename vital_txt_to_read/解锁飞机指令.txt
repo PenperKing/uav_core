@@ -1,0 +1,18 @@
+透传遥控程序简单说明：
+
+CH_N[8]: CH_ROL, CH_PIT, CH_THR, CH_YAW, AUX1, AUX2, AUX3, AUX4, 
+测试用例： AA AA 69 11 07 D0 03 E8 03 E8 03 E8 05 DC 05 DC 05 DC 05 DC EA
+以上用例解锁成功，王辉在实验室听到电机的声音。
+
+解锁重要步骤和程序：Ano_Rc.c 58行 ，这里需要adc采集到电池的电压，电压正常才能进入解锁检测，
+本人测试时，电源板未接入电池，因此屏蔽了电池检测，进入了解锁检测。（电源板接入电池电源待测试，目前程序加上电池检测）
+进入解锁以后：程序先检查传感器功能，传感器正常允许解锁。
+			  然后判断： 
+					if 油门  < -UN_THR_VALUE
+					if(CH_N[CH_PIT]<-UN_PIT_VALUE && CH_N[CH_ROL]>UN_ROL_VALUE && CH_N[CH_YAW]<-UN_YAW_VALUE)
+					即 CH_ROL, CH_PIT, CH_THR, CH_YAW = 2000，1000，1000，1000 = 07 D0 03 E8 03 E8 03 E8
+				
+				若未解锁：jlink判断是否进入 上述；两个if
+				
+			stick_function_check_longpress(dT_ms,&unlock_f,unlock_time,stick_fun_0,f,&flag.fly_ready);
+			程序执行到	*trig = trig_val;   即解锁完成
