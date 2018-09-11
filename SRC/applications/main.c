@@ -14,12 +14,7 @@
 //USART2  透传 发送状态数据   1.187.171
 //USART1  接收机     add:1.187.170 数据格式见readme.txt
 //透传 工作状态不闪，配置环境按按键，闪
-/*
-解决死机：现象：部分串口可以读到数据，数据透传无法工作，主循环不跑，UWB和光流有数据更新
-					原因： 进入串口ORE中断，且未清除该中断
-					解决： 各个串口加ORE中断判断，好了，解决了。
-	KEIL  版本 4.74
-*/
+
 #ifdef  USE_FULL_ASSERT
 void assert_failed(uint8_t* file, uint32_t line)
 { 

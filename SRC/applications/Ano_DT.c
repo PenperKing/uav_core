@@ -1,16 +1,9 @@
-/******************** (C) COPYRIGHT 2017 ANO Tech ********************************
- * 作者    ：匿名科创
- * 官网    ：www.anotc.com
- * 淘宝    ：anotc.taobao.com
- * 技术Q群 ：190169595
- * 描述    ：数据传输
-**********************************************************************************/
 #include "Ano_DT.h"
 #include "Ano_RC.h"
 #include "Ano_USB.h"
 #include "Drv_usart.h"
 #include "Drv_time.h"
-#include "ANO_IMU.h"
+#include "Ano_Imu.h"
 #include "Drv_icm20602.h"
 #include "Ano_MagProcess.h"
 #include "Ano_MotorCtrl.h"
@@ -24,9 +17,11 @@
 #include "uwb.h"
 #include "Ano_OF.h"
 #include "Ano_AttCtrl.h"
-/////////////////////////////////////////////////////////////////////////////////////
-//数据拆分宏定义，在发送大于1字节的数据类型时，比如int16、float等，需要把数据拆分成单独字节进行发送
-#define BYTE0(dwTemp)       ( *( (char *)(&dwTemp)		) )
+
+/* 数据拆分宏定义，在发送大于1字节的数据类型时，
+ * 比如int16、float等，需要把数据拆分成单独字节进行发送
+ */
+#define BYTE0(dwTemp)       ( *( (char *)(&dwTemp) + 0) )
 #define BYTE1(dwTemp)       ( *( (char *)(&dwTemp) + 1) )
 #define BYTE2(dwTemp)       ( *( (char *)(&dwTemp) + 2) )
 #define BYTE3(dwTemp)       ( *( (char *)(&dwTemp) + 3) )
@@ -37,9 +32,8 @@
 #define PARNUM		100
 s32 ParValList[100];		//参数列表
 
-dt_flag_t f;					//需要发送数据的标志
+dt_flag_t f;			//需要发送数据的标志
 u8 data_to_send[50];	//发送数据缓存
-u8 checkdata_to_send,checksum_to_send;
 
 /////////////////////////////////////////////////////////////////////////////////////
 //Send_Data函数是协议中所有发送数据功能使用到的发送函数
@@ -122,7 +116,7 @@ void Ano_system_data(System_t *data)
 	_temp = data->power_Votage;
 	
 	data_to_send[_cnt++]=BYTE1(_temp);
-  data_to_send[_cnt++]=BYTE0(_temp);
+    data_to_send[_cnt++]=BYTE0(_temp);
 	//Gyro
 	
 	_temp = data->Gyro_y;
@@ -332,16 +326,18 @@ void ANO_DT_Data_Exchange(void)
 
 
 /////////////////////////////////////////////////////////////////////////////////////
-//Data_Receive_Prepare函数是协议预解析，根据协议的格式，将收到的数据进行一次格式性解析，格式正确的话再进行数据解析
-//移植时，此函数应由用户根据自身使用的通信方式自行调用，比如串口每收到一字节数据，则调用此函数一次
-//此函数解析出符合格式的数据帧后，会自行调用数据解析函数
-static u8 DT_RxBuffer[256],DT_data_cnt = 0,ano_dt_data_ok;
+/*
+ * Data_Receive_Prepare函数是协议预解析，根据协议的格式，将收到的数据进行一次格式性解析，格式正确的话再进行数据解析
+ * 移植时，此函数应由用户根据自身使用的通信方式自行调用，比如串口每收到一字节数据，则调用此函数一次
+ * 此函数解析出符合格式的数据帧后，会自行调用数据解析函数
+ */
+static u8 DT_RxBuffer[256], DT_data_cnt = 0, ano_dt_data_ok;
 
 void ANO_DT_Data_Receive_Anl_Task()
 {
 	if(ano_dt_data_ok)
 	{
-		ANO_DT_Data_Receive_Anl(DT_RxBuffer,DT_data_cnt+6);
+		ANO_DT_Data_Receive_Anl(DT_RxBuffer, (u8)(DT_data_cnt + 6));
 		ano_dt_data_ok = 0;
 	}
 }

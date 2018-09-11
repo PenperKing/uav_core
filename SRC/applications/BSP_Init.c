@@ -29,9 +29,9 @@ u8 All_Init()
 	Flash_Init();             		//板载FLASH芯片驱动初始化
 	
 	Para_Data_Init();              		//参数数据初始化
-	
-	//PWM_IN_Init();					//初始化接收机采集功能
-
+#ifndef USE_NRF_RC
+	PWM_IN_Init();					//初始化接收机采集功能
+#endif
 	PWM_Out_Init();					//初始化电调输出功能		
 	
 	Drv_SPI2_init();          		//spi_2初始化，用于读取飞控板上所有传感器，都用SPI读取
@@ -39,23 +39,23 @@ u8 All_Init()
 	Drv_AK8975CSPin_Init();   		//spi片选初始化
 
 	Drv_SPL06CSPin_Init();    		//spi片选初始化
-	sens_hd_check.gyro_ok = sens_hd_check.acc_ok = 
-	Drv_Icm20602Reg_Init();   		//icm陀螺仪加速度计初始化，若初始化成功，则将陀螺仪和加速度的初始化成功标志位赋值
-	sens_hd_check.mag_ok = 1;       //标记罗盘OK	
+	sens_hd_check.gyro_ok = sens_hd_check.acc_ok;
+	Drv_Icm20602Reg_Init();   		// icm陀螺仪加速度计初始化，若初始化成功，则将陀螺仪和加速度的初始化成功标志位赋值
+	sens_hd_check.mag_ok = 1;       // 标记罗盘OK
 	sens_hd_check.baro_ok = Drv_Spl0601_Init();       		//气压计初始化
 
-	Usb_Hid_Init();					//飞控usb接口的hid初始化
-	Delay_ms(400);					//延时
+	Usb_Hid_Init();					// 飞控usb接口的hid初始化
+	Delay_ms(400);					// 延时
 	
-	uart1_init(500000);  //透传接收机
-	Usart2_Init(500000);			//串口2初始化，函数参数为波特率
-	Uart4_Init(500000);
-	uwb_Init ();
-	I2c_Soft_Init();          		//软件i2c初始化，因为飞控可以外接匿名激光定高模块，需要保留一个IIC，读取外置传感器
-	Drv_Vl53_Init();          		//TOF模块初始化，使用VL53L0X的激光测高，代替原有的超声波定高，效果更好
+	uart1_init(500000);  			// nrf 透传接收机
+	Usart2_Init(500000);			// 数传：发送飞行数据到上位机pc
+	Uart4_Init(500000);				// UWB 定位模块
+	Uart5_Init(500000);             // 光流传感器
+	I2c_Soft_Init();          		// 软件i2c初始化，因为飞控可以外接匿名激光定高模块，需要保留一个IIC，读取外置传感器
+	Drv_Vl53_Init();          		// TOF模块初始化，使用VL53L0X的激光测高，代替原有的超声波定高，效果更好
 
 	Drv_AdcInit();
-	Delay_ms(100);					//延时
+	Delay_ms(100);					// 延时
 
 	All_PID_Init();               		//PID初始化
 	

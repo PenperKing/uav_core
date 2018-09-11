@@ -5,6 +5,7 @@
  * 技术Q群 ：190169595
  * 描述    ：串口驱动
 **********************************************************************************/
+#include "include.h"
 #include "Drv_usart.h"
 #include "Ano_DT.h"
 #include "Ano_OF.h"
@@ -69,7 +70,9 @@ void USART1_IRQHandler(void)                	//串口1中断服务程序
 	{
 		USART_ClearITPendingBit(USART1,USART_IT_RXNE);//清除中断标志
 		com_data = USART1->DR;
+#ifdef USE_NRF_RC
 		protocol_nrf_rc_data(com_data);
+#endif
 	}
 } 	
 
@@ -374,7 +377,6 @@ void Uart4_IRQ ( void )
     if ( USART_GetITStatus ( UART4, USART_IT_RXNE ) )
     {
         USART_ClearITPendingBit ( UART4, USART_IT_RXNE ); //清除中断标志
-
         com_data = UART4->DR;
 				protocol_uwb_location(com_data);
        // AnoOF_GetOneByte ( com_data );

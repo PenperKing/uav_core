@@ -6,10 +6,6 @@ u8 UWB_data[8] = {0};
 uwb_location_t uwb_location = {0,0,0,0,0,0};
 
 // 3 is tag
-void uwb_Init (void)
-{
-	 Uart5_Init(500000);			
-}
 //uwb_protoaol:
 /*
 * AA AA 32 LEN TAG X Y Z CHECKSUM

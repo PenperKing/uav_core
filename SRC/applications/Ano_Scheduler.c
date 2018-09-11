@@ -33,7 +33,7 @@ u8 main_run_cnts = 0;
 static void Loop_1000Hz(void)	//1ms执行一次
 {
 	test_dT_1000hz[0] = test_dT_1000hz[1];
-	test_rT[3] = test_dT_1000hz[1] = GetSysTime_us ();
+	test_rT[3] = test_dT_1000hz[1] = GetSysTime_us();
 	test_dT_1000hz[2] = (u32)(test_dT_1000hz[1] - test_dT_1000hz[0]) ;
 //////////////////////////////////////////////////////////////////////	
 	/*传感器数据读取*/
@@ -61,13 +61,13 @@ static void Loop_1000Hz(void)	//1ms执行一次
 	Motor_Ctrl_Task(1);
 		
 	/*数传数据交换*/
- ANO_DT_Data_Exchange();
+ 	ANO_DT_Data_Exchange();
 	
-main_run_cnts++;
+	main_run_cnts++;
 
 //////////////////////////////////////////////////////////////////////	
-			test_rT[4]= GetSysTime_us ();
-			test_rT[5] = (u32)(test_rT[4] - test_rT[3]) ;	
+	test_rT[4]= GetSysTime_us ();
+	test_rT[5] = (u32)(test_rT[4] - test_rT[3]);
 }
 
 static void Loop_500Hz(void)	//2ms执行一次
@@ -83,7 +83,7 @@ static void Loop_200Hz(void)	//5ms执行一次
 
 static void Loop_100Hz(void)	//10ms执行一次
 {
-			test_rT[0]= GetSysTime_us ();
+	test_rT[0]= GetSysTime_us ();
 //////////////////////////////////////////////////////////////////////				
 	/*遥控器数据处理*/
 	RC_duty_task(10);
@@ -115,8 +115,8 @@ static void Loop_100Hz(void)	//10ms执行一次
 	/*灯光控制*/	
 	LED_Task(10);
 //////////////////////////////////////////////////////////////////////		
-			test_rT[1]= GetSysTime_us ();
-			test_rT[2] = (u32)(test_rT[1] - test_rT[0]) ;	
+	test_rT[1]= GetSysTime_us ();
+	test_rT[2] = (u32)(test_rT[1] - test_rT[0]);
 				
 }
 
@@ -124,8 +124,6 @@ static void Loop_50Hz(void)	//20ms执行一次
 {	
 	/*罗盘数据处理任务*/
 	Mag_Update_Task(20);
-
-
 }
 
 static void Loop_20Hz(void)	//50ms执行一次
@@ -140,7 +138,6 @@ static void Loop_2Hz(void)	//500ms执行一次
 {
 	/*延时存储任务*/
 	Ano_Parame_Write_task(500);
-
 }
 //系统任务配置，创建不同执行频率的“线程”
 static sched_task_t sched_tasks[] = 
@@ -176,7 +173,6 @@ void Scheduler_Run(void)
 {
 	uint8_t index = 0;
 	//循环判断所有线程，是否应该执行
-
 	
 	for(index=0;index < TASK_NUM;index++)
 	{
