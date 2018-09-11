@@ -1,0 +1,202 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../Libraries/CMSIS/Include/core_cm4.h
+stdint.h
+-
+core_cmInstr.h
+-
+core_cmFunc.h
+-
+core_cm4_simd.h
+../Libraries/CMSIS/Include/core_cm4_simd.h
+
+../Libraries/CMSIS/Include/core_cm4_simd.h
+cmsis_iar.h
+-
+
+../Libraries/CMSIS/Include/core_cmFunc.h
+cmsis_iar.h
+-
+
+../Libraries/CMSIS/Include/core_cmInstr.h
+cmsis_iar.h
+-
+
+../Libraries/CMSIS/ST/STM32F4xx/Include/stm32f4xx.h
+core_cm4.h
+../Libraries/CMSIS/ST/STM32F4xx/Include/core_cm4.h
+system_stm32f4xx.h
+../Libraries/CMSIS/ST/STM32F4xx/Include/system_stm32f4xx.h
+stdint.h
+-
+stm32f4xx_conf.h
+../Libraries/CMSIS/ST/STM32F4xx/Include/stm32f4xx_conf.h
+
+../Libraries/CMSIS/ST/STM32F4xx/Include/system_stm32f4xx.h
+
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/misc.h
+stm32f4xx.h
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx.h
+
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_adc.h
+stm32f4xx.h
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx.h
+
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dbgmcu.h
+stm32f4xx.h
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx.h
+
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_dma.h
+stm32f4xx.h
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx.h
+
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_exti.h
+stm32f4xx.h
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx.h
+
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_flash.h
+stm32f4xx.h
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx.h
+
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_gpio.h
+stm32f4xx.h
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx.h
+
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_i2c.h
+stm32f4xx.h
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx.h
+
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_pwr.h
+stm32f4xx.h
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx.h
+
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_rcc.h
+stm32f4xx.h
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx.h
+
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_spi.h
+stm32f4xx.h
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx.h
+
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_syscfg.h
+stm32f4xx.h
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx.h
+
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_tim.h
+stm32f4xx.h
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx.h
+
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_usart.h
+stm32f4xx.h
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx.h
+
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx_wwdg.h
+stm32f4xx.h
+../Libraries/STM32F4xx_StdPeriph_Driver/inc/stm32f4xx.h
+
+../SRC/applications/stm32f4xx_conf.h
+stm32f4xx_adc.h
+../SRC/applications/stm32f4xx_adc.h
+stm32f4xx_dbgmcu.h
+../SRC/applications/stm32f4xx_dbgmcu.h
+stm32f4xx_dma.h
+../SRC/applications/stm32f4xx_dma.h
+stm32f4xx_exti.h
+../SRC/applications/stm32f4xx_exti.h
+stm32f4xx_flash.h
+../SRC/applications/stm32f4xx_flash.h
+stm32f4xx_gpio.h
+../SRC/applications/stm32f4xx_gpio.h
+stm32f4xx_i2c.h
+../SRC/applications/stm32f4xx_i2c.h
+stm32f4xx_pwr.h
+../SRC/applications/stm32f4xx_pwr.h
+stm32f4xx_rcc.h
+../SRC/applications/stm32f4xx_rcc.h
+stm32f4xx_spi.h
+../SRC/applications/stm32f4xx_spi.h
+stm32f4xx_syscfg.h
+../SRC/applications/stm32f4xx_syscfg.h
+stm32f4xx_tim.h
+../SRC/applications/stm32f4xx_tim.h
+stm32f4xx_usart.h
+../SRC/applications/stm32f4xx_usart.h
+stm32f4xx_wwdg.h
+../SRC/applications/stm32f4xx_wwdg.h
+misc.h
+../SRC/applications/misc.h
+
+../SRC/drivers/Drv_pwm_in.h
+stm32f4xx.h
+../SRC/drivers/stm32f4xx.h
+
+../SRC/drivers/Drv_time.h
+stm32f4xx.h
+../SRC/drivers/stm32f4xx.h
+
+../SRC/drivers/Drv_usart.h
+stm32f4xx.h
+../SRC/drivers/stm32f4xx.h
+
+../SRC/fc_general/Ano_FcData.h
+config.h
+../SRC/fc_general/config.h
+
+../SRC/fc_specific/config.h
+stm32f4xx.h
+../SRC/fc_specific/stm32f4xx.h
+
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/Ano_DT.h
+stm32f4xx.h
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/stm32f4xx.h
+
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/Ano_Parameter.h
+stm32f4xx.h
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/stm32f4xx.h
+Ano_FcData.h
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/Ano_FcData.h
+
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/Ano_Scheduler.h
+stm32f4xx.h
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/stm32f4xx.h
+
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/Ano_USB.h
+stm32f4xx.h
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/stm32f4xx.h
+
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/BSP_Init.h
+stm32f4xx.h
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/stm32f4xx.h
+
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/include.h
+Ano_FcData.h
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/Ano_FcData.h
+Ano_Scheduler.h
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/Ano_Scheduler.h
+BSP_Init.h
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/BSP_Init.h
+Ano_DT.h
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/Ano_DT.h
+Ano_Parameter.h
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/Ano_Parameter.h
+Ano_USB.h
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/Ano_USB.h
+Drv_time.h
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/Drv_time.h
+Drv_pwm_in.h
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/Drv_pwm_in.h
+Drv_usart.h
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/Drv_usart.h
+
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/main.c
+include.h
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/include.h
+Ano_FcData.h
+/cygdrive/e/ANO_Pionee r_master/uav_core/SRC/applications/Ano_FcData.h
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/SRC/applications/Ano_OF.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/SRC/applications/Ano_OF.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/SRC/applications/Ano_Parameter.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/SRC/drivers/Drv_adc.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/SRC/fc_general/Ano_FcData.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/SRC/fc_specific/Ano_AltCtrl.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/SRC/fc_specific/Ano_AttCtrl.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/SRC/fc_specific/Ano_FlightCtrl.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/SRC/fc_specific/Ano_FlightDataCal.c" charset="GBK" />
+  </component>
+</project>
